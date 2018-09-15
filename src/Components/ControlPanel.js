@@ -13,14 +13,14 @@ class ControlPanel extends Component {
 
 
     disableRotateButton = (event) => {
-        this.setState((prevState) => {
+        this.setState((currentState) => {
             return {
-                rotateButtonDisabled: !prevState.rotateButtonDisabled
+                rotateButtonDisabled: !currentState.rotateButtonDisabled
             }
         })
     }
 
-    updateRotate = (event) => {
+    updateRotateFunction = (event) => {
       this.props.updateRotate()
     }
 
@@ -33,7 +33,7 @@ class ControlPanel extends Component {
           </button>
           {'   '}
           <button id='rotate' title="rotate" disabled={this.state.rotateButtonDisabled}
-            onClick={this.updateRotate}>
+            onClick={this.updateRotateFunction}>
           {this.props.rotate ? 'Stop' : 'Rotate'}
           </button>
         </p>

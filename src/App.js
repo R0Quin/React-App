@@ -9,7 +9,8 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      rotate: false
+      rotate: false,
+      uselessFlag: true
     };
   }
 
@@ -19,9 +20,11 @@ class App extends Component {
       {
         return {
         rotate: !prevState.rotate
+        // uselessFlag: !prevState.uselessFlag
       };
     });
   }
+
 
   updateRotate2 = () => {
     this.setState((prevState) => 

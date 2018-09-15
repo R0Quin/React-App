@@ -31,6 +31,7 @@ describe('When the App component is rendered ...', () =>{
   })
   
   it('the correct function reference is passed down to the control panel', () => {
+    // console.log('logging 1 ....', wrapper.instance())
     expect(wrapper.find('ControlPanel').props().updateRotate).to.equal(wrapper.instance().updateRotate)
   })
   
@@ -42,6 +43,7 @@ describe('When the updateRotate function is called on the App component ...', ()
     expect(wrapper.find('TopBit').props().rotate).to.equal(false)
     wrapper.instance().updateRotate();
     // expect(wrapper.state().rotate).to.equal(true) // BAD!!! shouldnt test implementation!
+    // expect(wrapper.state().uselessFlag).to.equal(false) // BAD!!! shouldnt test implementation!
     expect(wrapper.find('TopBit').props().rotate).to.equal(true)
     wrapper.instance().updateRotate();
     expect(wrapper.find('TopBit').props().rotate).to.equal(false)
@@ -49,11 +51,11 @@ describe('When the updateRotate function is called on the App component ...', ()
 
   it('the control panel rotate flag is negated', () => {
     const wrapper = shallow(<App />);
-    expect(wrapper.find('TopBit').props().rotate).to.equal(false)
+    expect(wrapper.find('ControlPanel').props().rotate).to.equal(false)
     wrapper.instance().updateRotate();
-    expect(wrapper.find('TopBit').props().rotate).to.equal(true)
+    expect(wrapper.find('ControlPanel').props().rotate).to.equal(true)
     wrapper.instance().updateRotate();
-    expect(wrapper.find('TopBit').props().rotate).to.equal(false)
+    expect(wrapper.find('ControlPanel').props().rotate).to.equal(false)
   })
 
 })
